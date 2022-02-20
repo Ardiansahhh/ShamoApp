@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   runApp(const MyApp());
@@ -22,7 +23,12 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Image.asset('assets/icons/icon_logo.png'),
+      body: Center(
+        child: Text('Hallo Semua !', style: GoogleFonts.poppins(
+          fontSize: 50,
+          fontWeight: FontWeight.bold
+        ),),
+      ),
     );
   }
 }
