@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../theme.dart';
+import '../../theme.dart';
 
 Widget footer() {
   return Container(

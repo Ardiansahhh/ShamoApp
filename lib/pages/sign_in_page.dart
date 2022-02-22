@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:shamo/theme.dart';
-import 'package:shamo/widgets/footer.dart';
-import 'package:shamo/widgets/password.dart';
-import 'package:shamo/widgets/sign_in_button.dart';
-import '../widgets/email.dart';
-import '../widgets/header.dart';
+import 'package:shamo/widgets/signIn/footer.dart';
+import 'package:shamo/widgets/signIn/password.dart';
+import 'package:shamo/widgets/signIn/sign_in_button.dart';
+import '../widgets/signIn/email.dart';
+import '../widgets/signIn/header.dart';
 
 class SignIn extends StatelessWidget {
   const SignIn({Key? key}) : super(key: key);
