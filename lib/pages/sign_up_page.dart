@@ -6,8 +6,7 @@ import 'package:shamo/widgets/sign_in_button.dart';
 import '../widgets/email.dart';
 import '../widgets/header.dart';
 
-class SignIn extends StatelessWidget {
-  const SignIn({Key? key}) : super(key: key);
+class SignUp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
