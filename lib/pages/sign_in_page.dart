@@ -25,7 +25,7 @@ class SignIn extends StatelessWidget {
                 PasswordInput(),
                 SignInButton(),
                 Spacer(),
-                footer()
+                Footer()
               ],
             ),
           ),

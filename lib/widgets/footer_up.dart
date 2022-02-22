@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../theme.dart';
 
-class Footer extends StatelessWidget {
+class FooterUp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
@@ -11,17 +11,17 @@ class Footer extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(
-          'Don\'t have an account ? ',
+          'Already have an account ? ',
           style: subtitleTextStyle.copyWith(
             fontSize: 12,
           ),
         ),
         GestureDetector(
           onTap: () {
-            Navigator.pushNamed(context, '/sign-up');
+            Navigator.pop(context);
           },
           child: Text(
-            "Sign Up",
+            "Sign In",
             style: purpleTextStyle.copyWith(fontSize: 12, fontWeight: medium),
           ),
         ),
