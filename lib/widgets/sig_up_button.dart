@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import '../theme.dart';
 
-Widget SignUpButton() {
-  return Container(
+class SignUpButton extends StatelessWidget {
+
+  @override
+  Widget build(BuildContext context) {
+   return Container(
     height: 50,
     width: double.infinity,
     margin: EdgeInsets.only(top: 30),
@@ -13,11 +16,15 @@ Widget SignUpButton() {
           borderRadius: BorderRadius.circular(12),
         )
       ),
-      onPressed: () {},
+      onPressed: () {
+        Navigator.pushNamed(context, '/home');
+      },
       child: Text('Sign Up',style: primaryTextStyle.copyWith(
         fontSize: 16,
         fontWeight: medium
       ),),
     ),
   );
+  }
 }
+
