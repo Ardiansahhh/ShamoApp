@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shamo/home/home_page.dart';
 import 'package:shamo/home/main_page.dart';
 import 'package:shamo/pages/sign_in_page.dart';
 import 'package:shamo/pages/sign_up_page.dart';
