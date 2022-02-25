@@ -6,6 +6,7 @@ import '../theme.dart';
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    
     Widget header() {
       return Container(
         margin: EdgeInsets.only(
@@ -27,7 +28,7 @@ class HomePage extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    "@ArdiansahV^Katar",
+                    "@Ardians_droid",
                     style: subtitleTextStyle.copyWith(fontSize: 16),
                   )
                 ],
