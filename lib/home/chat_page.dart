@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shamo/widgets/chat_tile.dart';
 import '../theme.dart';
 
 class ChatPage extends StatelessWidget {
@@ -16,8 +17,8 @@ class ChatPage extends StatelessWidget {
         ),
       );
     }
-
-    Widget content() {
+    
+    Widget emptyChat() {
       return Expanded(
         child: Container(
           color: bgColor3,
@@ -64,6 +65,22 @@ class ChatPage extends StatelessWidget {
               )
             ],
           ),
+        ),
+      );
+    }
+
+    Widget content() {
+      return Expanded(
+        child: Container(
+          color: bgColor3,
+          width: double.infinity,
+          child: ListView(
+            padding: EdgeInsets.symmetric(
+              horizontal: defaultMargin,
+            ),
+            children: [
+              ChatTile(),
+          ],)
         ),
       );
     }
