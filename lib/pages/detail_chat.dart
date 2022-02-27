@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shamo/widgets/chat_bubble.dart';
 import '../theme.dart';
 
 class DetailChat extends StatelessWidget {
@@ -51,14 +52,15 @@ class DetailChat extends StatelessWidget {
                   SizedBox(height: 2),
                   Text(
                     "\$54,89",
-                    style: priceTextStyle.copyWith(
-                      fontWeight: medium
-                    ),
+                    style: priceTextStyle.copyWith(fontWeight: medium),
                   ),
                 ],
               ),
             ),
-             Image.asset('assets/icons/icon_close.png', width: 22,)
+            Image.asset(
+              'assets/icons/icon_close.png',
+              width: 22,
+            )
           ],
         ),
       );
@@ -103,6 +105,26 @@ class DetailChat extends StatelessWidget {
       );
     }
 
+    Widget contentChat() {
+      return ListView(
+        padding: EdgeInsets.symmetric(
+          horizontal: defaultMargin,
+        ),
+        children: [
+          ChatBubble(
+            chattext: 'Hi, This item is still available',
+            isSender: true,
+            hasProduct: true,
+          ),
+          ChatBubble(
+            chattext: 'Good night, this item is only available in size 42 and 43',
+            isSender: false,
+            hasProduct: false,
+          ),
+        ],
+      );
+    }
+
     return Scaffold(
       backgroundColor: bgColor3,
       appBar: AppBar(
@@ -138,6 +160,7 @@ class DetailChat extends StatelessWidget {
         ),
       ),
       bottomNavigationBar: chatInput(),
+      body: contentChat(),
     );
   }
 }
