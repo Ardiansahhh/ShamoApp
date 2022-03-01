@@ -21,7 +21,7 @@ class EditProfile extends StatelessWidget {
           TextFormField(
             style: primaryTextStyle,
             decoration: InputDecoration(
-                hintText: 'Katarina',
+                hintText: 'Ardiansah',
                 hintStyle: primaryTextStyle,
                 enabledBorder: UnderlineInputBorder(
                   borderSide: BorderSide(
@@ -51,7 +51,7 @@ class EditProfile extends StatelessWidget {
           TextFormField(
             style: primaryTextStyle,
             decoration: InputDecoration(
-                hintText: '@katrine',
+                hintText: '@Ardians',
                 hintStyle: primaryTextStyle,
                 enabledBorder: UnderlineInputBorder(
                   borderSide: BorderSide(
@@ -81,7 +81,7 @@ class EditProfile extends StatelessWidget {
           TextFormField(
             style: primaryTextStyle,
             decoration: InputDecoration(
-                hintText: 'Katarina@gmail.com',
+                hintText: 'ard5070@gmail.com',
                 hintStyle: primaryTextStyle,
                 enabledBorder: UnderlineInputBorder(
                   borderSide: BorderSide(

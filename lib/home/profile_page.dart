@@ -26,12 +26,12 @@ class ProfilePage extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Hello, Katarina',
+                      'Hello, Ardiansah',
                       style: primaryTextStyle.copyWith(
                           fontSize: 24, fontWeight: semiBold),
                     ),
                     Text(
-                      '@katrine',
+                      '@Ardians',
                       style: subtitleTextStyle.copyWith(
                         fontSize: 16,
                       ),
