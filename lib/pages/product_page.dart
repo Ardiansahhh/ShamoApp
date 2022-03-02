@@ -14,6 +14,18 @@ class _ProductPageState extends State<ProductPage> {
     'assets/images/image_shoes.png',
   ];
 
+  List familiarShoes = [
+    'assets/images/image_shoes.png',
+    'assets/images/image_shoes.png',
+    'assets/images/image_shoes.png',
+    'assets/images/image_shoes.png',
+    'assets/images/image_shoes.png',
+    'assets/images/image_shoes.png',
+    'assets/images/image_shoes.png',
+    'assets/images/image_shoes.png',
+    'assets/images/image_shoes.png',
+  ];
+
   int currentIndex = 0;
 
   @override
@@ -26,6 +38,20 @@ class _ProductPageState extends State<ProductPage> {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
           color: currentIndex == index ? primaryColor : Color(0xFFC4C4C4),
+        ),
+      );
+    }
+
+    Widget familiarShoesCard(String image) {
+      return Container(
+        width: 54,
+        height: 54,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(6),
+          image: DecorationImage(image: AssetImage(image), fit: BoxFit.cover),
+        ),
+        margin: EdgeInsets.only(
+          right: 16,
         ),
       );
     }
@@ -78,7 +104,9 @@ class _ProductPageState extends State<ProductPage> {
               },
             ),
           ),
-          SizedBox(height: 20,),
+          SizedBox(
+            height: 20,
+          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: images.map((e) {
@@ -90,11 +118,200 @@ class _ProductPageState extends State<ProductPage> {
       );
     }
 
+    Widget content() {
+      int index = -1;
+      return Container(
+        width: double.infinity,
+        margin: EdgeInsets.only(
+          top: 17,
+        ),
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.vertical(
+              top: Radius.circular(24),
+            ),
+            color: bgColor1),
+        child: Column(
+          children: [
+            //NOTE: HEADER
+            Container(
+              margin: EdgeInsets.only(
+                  top: defaultMargin,
+                  left: defaultMargin,
+                  right: defaultMargin),
+              child: Row(
+                children: [
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'TERREX URBAN LOW',
+                          style: primaryTextStyle.copyWith(
+                              fontSize: 18, fontWeight: semiBold),
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                        Text(
+                          'Hiking',
+                          style: secondTextStyle.copyWith(fontSize: 12),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Image.asset(
+                    'assets/icons/icon_love_button.png',
+                    width: 46,
+                  )
+                ],
+              ),
+            ),
+            // CLOSE HEADER
+
+            // NOTE: PRICE
+            Container(
+              margin: EdgeInsets.only(
+                top: 20,
+                left: defaultMargin,
+                right: defaultMargin,
+              ),
+              padding: EdgeInsets.all(16),
+              decoration: BoxDecoration(
+                  color: bgColor2, borderRadius: BorderRadius.circular(4)),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'Price Start From',
+                    style: primaryTextStyle,
+                  ),
+                  Text(
+                    '\$143,98',
+                    style: priceTextStyle.copyWith(
+                      fontSize: 16,
+                      fontWeight: semiBold,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            // CLOSE PRICE
+
+            //NOTE: DESRIPTION
+            Container(
+              width: double.infinity,
+              margin: EdgeInsets.only(
+                  top: defaultMargin,
+                  left: defaultMargin,
+                  right: defaultMargin),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Description',
+                    style: primaryTextStyle.copyWith(fontWeight: medium),
+                  ),
+                  SizedBox(height: 12),
+                  Text(
+                    'Unpaved trails and mixed surfaces are easy when you have the traction and support you need. Casual enough for the daily commute.',
+                    style: subtitleTextStyle.copyWith(
+                      fontWeight: light,
+                    ),
+                    textAlign: TextAlign.justify,
+                  ),
+                ],
+              ),
+            ),
+            //CLOSE DESCRIPTION
+
+            // NOTE: FAMILIAR SHOES
+            Container(
+              width: double.infinity,
+              margin: EdgeInsets.only(
+                top: defaultMargin,
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: defaultMargin,
+                    ),
+                    child: Text(
+                      'Familiar Shoes',
+                      style: primaryTextStyle.copyWith(fontWeight: medium),
+                    ),
+                  ),
+                  SizedBox(height: 12),
+                  SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      children: familiarShoes.map(
+                        (e) {
+                          index++;
+                          return Container(
+                              margin: EdgeInsets.only(
+                                  left: index == 0 ? defaultMargin : 0),
+                              child: familiarShoesCard(e));
+                        },
+                      ).toList(),
+                    ),
+                  )
+                ],
+              ),
+            ),
+            //CLOSE FAMILIAR SHOES
+
+            //NOTE: BOTTON ADD TO CART
+            Container(
+              width: double.infinity,
+              margin: EdgeInsets.all(defaultMargin),
+              child: Row(
+                children: [
+                  Container(
+                    margin: EdgeInsets.only(bottom: defaultMargin),
+                    width: 54,
+                    height: 54,
+                    decoration: BoxDecoration(
+                        image: DecorationImage(
+                            image: AssetImage(
+                                'assets/icons/icon_button_chat.png'))),
+                  ),
+                  SizedBox(width: 16),
+                  Expanded(
+                    child: Container(
+                      height: 54,
+                      margin: EdgeInsets.only(bottom: defaultMargin),
+                      child: TextButton(
+                        style: TextButton.styleFrom(
+                          backgroundColor: primaryColor,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(12)
+                          )
+                        ),
+                          onPressed: () {},
+                          child: Text(
+                            'Add to Cart',
+                            style: primaryTextStyle.copyWith(
+                              fontWeight: semiBold,
+                              fontSize: 16,
+                            ),
+                          )),
+                    ),
+                  )
+                ],
+              ),
+            )
+            //CLOSE BUTTON TO CART
+          ],
+        ),
+      );
+    }
+
     return Scaffold(
         backgroundColor: bgColor6,
         body: ListView(
           children: [
             header(),
+            content(),
           ],
         ));
   }
