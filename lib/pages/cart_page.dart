@@ -64,7 +64,79 @@ class CartPage extends StatelessWidget {
         ),
         children: [
           CartCard(),
+          CartCard(),
+          CartCard(),
+          CartCard(),
         ],
+      );
+    }
+
+    Widget customeBottomNav() {
+      return Container(
+        //JIKA HEIGHT TIDAK DIATUR, MAKA AKAN MENUTUPI SEMUA LAYAR, TERMASUK CONTENT YANG SUDAH DIBUAT
+        height: 180,
+        child: Column(
+          children: [
+            Container(
+              margin: EdgeInsets.symmetric(
+                horizontal: defaultMargin,
+                vertical: 10,
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'Subtotal',
+                    style: primaryTextStyle,
+                  ),
+                  Text(
+                    '\$287,96',
+                    style: priceTextStyle.copyWith(
+                      fontWeight: semiBold,
+                      fontSize: 16,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(height: 20),
+            Divider(
+              color: subtitleColor,
+              thickness: 0.3,
+            ),
+            SizedBox(height: 20),
+            Container(
+              height: 50,
+              margin: EdgeInsets.symmetric(horizontal: defaultMargin),
+              child: TextButton(
+                style: TextButton.styleFrom(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  backgroundColor: primaryColor,
+                  padding: EdgeInsets.symmetric(horizontal: 20),
+                ),
+                onPressed: () {},
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      'Continue to Checkout',
+                      style: primaryTextStyle.copyWith(
+                        fontWeight: semiBold,
+                        fontSize: 16,
+                      ),
+                    ),
+                    Icon(
+                      Icons.arrow_forward,
+                      color: primaryTextColor,
+                    ),
+                  ],
+                ),
+              ),
+            )
+          ],
+        ),
       );
     }
 
@@ -77,6 +149,7 @@ class CartPage extends StatelessWidget {
         elevation: 0,
       ),
       body: content(), //emptyCart
+      bottomNavigationBar: customeBottomNav(),
     );
   }
 }
