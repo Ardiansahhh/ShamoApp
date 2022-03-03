@@ -27,9 +27,80 @@ class _ProductPageState extends State<ProductPage> {
   ];
 
   int currentIndex = 0;
+  bool isWishlist = false;
 
   @override
   Widget build(BuildContext context) {
+    Future<void> showSuccessDialog() async {
+      return showDialog(
+        context: context,
+        builder: (BuildContext context) => Container(
+          width: MediaQuery.of(context).size.width - (2 * defaultMargin),
+          child: AlertDialog(
+            backgroundColor: bgColor3,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(30),
+            ),
+            content: SingleChildScrollView(
+              child: Column(
+                children: [
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: GestureDetector(
+                      onTap: () {
+                        Navigator.pop(context);
+                      },
+                      child: Icon(
+                        Icons.close,
+                        color: primaryTextColor,
+                      ),
+                    ),
+                  ),
+                  Image.asset(
+                    'assets/icons/icon_success.png',
+                    width: 100,
+                  ),
+                  SizedBox(height: 12),
+                  Text(
+                    'Horee',
+                    style: primaryTextStyle.copyWith(
+                        fontSize: 18, fontWeight: semiBold),
+                  ),
+                  SizedBox(height: 12),
+                  Text(
+                    'Item added successfully',
+                    style: secondTextStyle,
+                  ),
+                  SizedBox(height: 20),
+                  Container(
+                    height: 44,
+                    width: 154,
+                    child: TextButton(
+                      style: TextButton.styleFrom(
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(12)),
+                        backgroundColor: primaryColor,
+                        padding: EdgeInsets.symmetric(
+                          vertical: 10,
+                          horizontal: 24,
+                        ),
+                      ),
+                      onPressed: () {},
+                      child: Text(
+                        'View My Cart',
+                        style: primaryTextStyle.copyWith(
+                            fontSize: 16, fontWeight: medium),
+                      ),
+                    ),
+                  )
+                ],
+              ),
+            ),
+          ),
+        ),
+      );
+    }
+
     Widget indicator(int index) {
       return Container(
         width: currentIndex == index ? 16 : 4,
@@ -157,9 +228,33 @@ class _ProductPageState extends State<ProductPage> {
                       ],
                     ),
                   ),
-                  Image.asset(
-                    'assets/icons/icon_love_button.png',
-                    width: 46,
+                  GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        isWishlist = !isWishlist;
+                      });
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          backgroundColor:
+                              isWishlist ? secondaryColor : alertColor,
+                          content: isWishlist
+                              ? Text(
+                                  'Has been added to the wishlist',
+                                  textAlign: TextAlign.center,
+                                )
+                              : Text(
+                                  'Has been removed from wishlist',
+                                  textAlign: TextAlign.center,
+                                ),
+                        ),
+                      );
+                    },
+                    child: Image.asset(
+                      isWishlist
+                          ? 'assets/icons/icon_love_button_active.png'
+                          : 'assets/icons/icon_love_button.png',
+                      width: 46,
+                    ),
                   )
                 ],
               ),
@@ -266,14 +361,19 @@ class _ProductPageState extends State<ProductPage> {
               margin: EdgeInsets.all(defaultMargin),
               child: Row(
                 children: [
-                  Container(
-                    margin: EdgeInsets.only(bottom: defaultMargin),
-                    width: 54,
-                    height: 54,
-                    decoration: BoxDecoration(
-                        image: DecorationImage(
-                            image: AssetImage(
-                                'assets/icons/icon_button_chat.png'))),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.pushNamed(context, '/detail-chat');
+                    },
+                    child: Container(
+                      margin: EdgeInsets.only(bottom: defaultMargin),
+                      width: 54,
+                      height: 54,
+                      decoration: BoxDecoration(
+                          image: DecorationImage(
+                              image: AssetImage(
+                                  'assets/icons/icon_button_chat.png'))),
+                    ),
                   ),
                   SizedBox(width: 16),
                   Expanded(
@@ -281,13 +381,13 @@ class _ProductPageState extends State<ProductPage> {
                       height: 54,
                       margin: EdgeInsets.only(bottom: defaultMargin),
                       child: TextButton(
-                        style: TextButton.styleFrom(
-                          backgroundColor: primaryColor,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(12)
-                          )
-                        ),
-                          onPressed: () {},
+                          style: TextButton.styleFrom(
+                              backgroundColor: primaryColor,
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(12))),
+                          onPressed: () {
+                            showSuccessDialog();
+                          },
                           child: Text(
                             'Add to Cart',
                             style: primaryTextStyle.copyWith(
