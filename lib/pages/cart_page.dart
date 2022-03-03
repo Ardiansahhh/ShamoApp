@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shamo/widgets/cart_card.dart';
 import '../theme.dart';
 
 class CartPage extends StatelessWidget {
@@ -41,7 +42,8 @@ class CartPage extends StatelessWidget {
                     ),
                     backgroundColor: primaryColor),
                 onPressed: () {
-                  Navigator.pushNamedAndRemoveUntil(context, '/home', (route) => false);
+                  Navigator.pushNamedAndRemoveUntil(
+                      context, '/home', (route) => false);
                 },
                 child: Text(
                   'Explore Store',
@@ -55,6 +57,17 @@ class CartPage extends StatelessWidget {
       ));
     }
 
+    Widget content() {
+      return ListView(
+        padding: EdgeInsets.symmetric(
+          horizontal: defaultMargin,
+        ),
+        children: [
+          CartCard(),
+        ],
+      );
+    }
+
     return Scaffold(
       backgroundColor: bgColor3,
       appBar: AppBar(
@@ -63,7 +76,7 @@ class CartPage extends StatelessWidget {
         title: Text('Your Cart'),
         elevation: 0,
       ),
-      body: emptyCart(),
+      body: content(), //emptyCart
     );
   }
 }
