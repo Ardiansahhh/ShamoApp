@@ -116,7 +116,9 @@ class CartPage extends StatelessWidget {
                   backgroundColor: primaryColor,
                   padding: EdgeInsets.symmetric(horizontal: 20),
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushNamed(context, '/checkout');
+                },
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
