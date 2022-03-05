@@ -228,7 +228,7 @@ class CheckoutPage extends StatelessWidget {
                   padding: EdgeInsets.symmetric(horizontal: 20),
                 ),
                 onPressed: () {
-                  Navigator.pushNamed(context, '/checkout');
+                  Navigator.pushNamed(context, '/checkoutsuccess');
                 },
                 child: Text(
                   'Checkout Now',

@@ -12,6 +12,8 @@ Color bgColor3         = Color(0xFF242231);
 Color bgColor4         = Color(0xFF252836);
 Color bgColor5         = Color(0xFF2B2844);
 Color bgColor6         = Color(0xFFECEDEF);
+Color bgColor7         = Color(0xFFB7B6BF);
+Color offbuttonColor   = Color(0xFF39374B);
 Color primaryTextColor = Color(0xFFF1F0F2);
 Color secondTextColor  = Color(0xFF999999);
 Color subtitleColor    = Color(0xFF504F5E);
@@ -21,6 +23,10 @@ Color transparantColor = Colors.transparent;
 
 TextStyle primaryTextStyle = GoogleFonts.poppins(
   color: primaryTextColor,
+);
+
+TextStyle offbuttonTextStyle = GoogleFonts.poppins(
+  color: bgColor7
 );
 
 TextStyle secondTextStyle = GoogleFonts.poppins(
